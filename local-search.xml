@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Blender操作</title>
+    <link href="/2020/10/16/Blender%E6%93%8D%E4%BD%9C/"/>
+    <url>/2020/10/16/Blender%E6%93%8D%E4%BD%9C/</url>
+    
+    <content type="html"><![CDATA[<h3 id="变换操作"><a href="#变换操作" class="headerlink" title="变换操作"></a>变换操作</h3><ul><li>平移 <code>g</code></li><li>旋转 <code>r</code></li><li>缩放 <code>s</code></li></ul><h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul><li>复制物体 <code>shift + d</code></li><li>添加物体 <code>shift + a</code></li><li>设置父级 <code>ctrl + p</code></li><li>合并物体 <code>ctrl + j</code></li></ul><h4 id="设置物体原点"><a href="#设置物体原点" class="headerlink" title="设置物体原点"></a>设置物体原点</h4><p>先按<code>tab</code>进入编辑模式，设置游标到目标位置 <code>shift + s</code>，然后进入物体模式，将原点对齐到游标。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2020/10/14/hello-world/"/>
     <url>/2020/10/14/hello-world/</url>
