@@ -176,6 +176,217 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        <a href="/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%BA%8C/">计算机图形学Shading(二)</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%BA%8C/">
+          
+          
+            
+          
+          纹理映射纹理就是对于表面不同像素的不同基本属性。
+不同属性作为系数与光照相乘，就能得到相应像素的着色。
+纹理映射其实就是将一个二维图像一一映射到物体上。
+用纹理坐标(u,v)来定位模型到展开图的位置。
+
+u,v 范围一般都是(0,1)
+
+对于可以无缝衔接的纹理被称为tileable texture。
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-18 03:56" pubdate>
+              2020-10-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Computer-Graphic/">Computer Graphic</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%B8%80/">计算机图形学Shading(一)</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%B8%80/">
+          
+          
+            
+          
+          Shading就是将不同物体应用不同材质，使其表现出明暗差异的过程。
+一般由3种光照组成
+
+高光 specular highlight
+漫反射 diffuse reflection 
+环境光照 Ambient lighting
+
+$$L = L_s+L_d+L_a$$
+漫反射 diffuse reflection计算摄像头所接收到的某个点的着色结果，需要以下输入：
+
+观测角度 v
+法线 n
+光线角
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-18 02:32" pubdate>
+              2020-10-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Computer-Graphic/">Computer Graphic</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/10/17/Blender%E5%88%B6%E4%BD%9C%E9%94%81%E9%93%BE/">Blender制作锁链</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/17/Blender%E5%88%B6%E4%BD%9C%E9%94%81%E9%93%BE/">
+          
+          
+            
+          
+          首先生成圆环，将其拉伸成椭圆环。并创建一个空物体ChainTrans。
+添加贝塞尔曲线，用于规划路径。
+在圆环中添加阵列修改器，适配类型选择适配曲线，曲线选择贝塞尔曲线。
+添加曲线修改器，曲线物体选择贝塞尔曲线。
+在阵列修改器中，勾选物体偏移，物体选择ChainTrans，扭转ChainTrans用于产生角度。调整相对偏移系数将锁环相扣。
+相关问题
+Q: 锁环没法应用到曲线上。
+
+A: 对曲线和锁
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-17 20:17" pubdate>
+              2020-10-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Blender/">Blender</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/10/17/Blender%E6%9D%90%E8%B4%A8/">Blender材质</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/17/Blender%E6%9D%90%E8%B4%A8/">
+          
+          
+            
+          
+          材质
+漫反射材质
+
+反射材质
+
+糙度 （糙度越小，反射效果越强）   
+
+
+透射材质
+
+糙度 (糙度越小，透射越强)
+折射率 (根据不同物体折射率模拟物体)
+
+
+发光材质
+
+强度 
+
+
+
+Blender 原理化着色器使用BSDF(双向散射分布函数)来定义光在物体表面的反射与折射方式。
+Blender 节点着色器
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-17 16:04" pubdate>
+              2020-10-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Blender/">Blender</a>
+            
+              <a href="/categories/Blender/Material/">Material</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
         <a href="/2020/10/16/Blender%E6%93%8D%E4%BD%9C/">Blender操作</a>
       </h1>
 
@@ -189,15 +400,23 @@
 平移 g
 旋转 r
 缩放 s
+挤出 e
+删除 x
+插入面 i
+缝合面 f
+添加倒角 ctrl + b
+
 
 常用操作
+打开视图 n
+更换着色方式 z
 复制物体 shift + d
 添加物体 shift + a
 设置父级 ctrl + p
 合并物体 ctrl + j
+应用修改器 ctrl + a
 
-设置物体原点先按tab进入编辑模式，设置游标到目标位置 shift + s，然后进入物体模式，将原点对齐到游标。
-
+设置物体原点先按tab进入编辑模式，设置游标到目标位置 shift + s，然后进入物体模式，
         </a>
       </p>
 
@@ -210,6 +429,15 @@
             </time>
           </div>
         
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Blender/">Blender</a>
+            
+              <a href="/categories/Blender/Operation/">Operation</a>
+            
+          </div>
         
         
       </div>

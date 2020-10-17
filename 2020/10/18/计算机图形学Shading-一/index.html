@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="LuzzyQWQ">
   <meta name="keywords" content="">
-  <title>Blender操作 - 柠檬香草的居酒屋</title>
+  <title>计算机图形学Shading(一) - 柠檬香草的居酒屋</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-16 21:34" pubdate>
-        2020年10月16日 晚上
+      <time datetime="2020-10-18 02:32" pubdate>
+        2020年10月18日 凌晨
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      156 字
+      545 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -217,31 +217,49 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Blender操作</h1>
+            <h1 style="display: none">计算机图形学Shading(一)</h1>
             
             <div class="markdown-body" id="post-body">
-              <h3 id="变换操作"><a href="#变换操作" class="headerlink" title="变换操作"></a>变换操作</h3><ul>
-<li>平移 <code>g</code></li>
-<li>旋转 <code>r</code></li>
-<li>缩放 <code>s</code></li>
-<li>挤出 <code>e</code></li>
-<li>删除 <code>x</code></li>
-<li>插入面 <code>i</code></li>
-<li>缝合面 <code>f</code></li>
-<li>添加倒角 <code>ctrl + b</code></li>
-<li></li>
+              <p>Shading就是将不同物体应用不同材质，使其表现出明暗差异的过程。</p>
+<p>一般由3种光照组成</p>
+<ul>
+<li>高光 specular highlight</li>
+<li>漫反射 diffuse reflection </li>
+<li>环境光照 Ambient lighting</li>
 </ul>
-<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul>
-<li>打开视图 <code>n</code></li>
-<li>更换着色方式 <code>z</code></li>
-<li>复制物体 <code>shift + d</code></li>
-<li>添加物体 <code>shift + a</code></li>
-<li>设置父级 <code>ctrl + p</code></li>
-<li>合并物体 <code>ctrl + j</code></li>
-<li>应用修改器 <code>ctrl + a</code></li>
+<p>$$L = L_s+L_d+L_a$$</p>
+<h3 id="漫反射-diffuse-reflection"><a href="#漫反射-diffuse-reflection" class="headerlink" title="漫反射 diffuse reflection"></a>漫反射 diffuse reflection</h3><p>计算摄像头所接收到的某个点的着色结果，需要以下输入：</p>
+<ol>
+<li>观测角度 <code>v</code></li>
+<li>法线 <code>n</code></li>
+<li>光线角度 <code>l</code></li>
+<li>还有一系列的表面参数</li>
+</ol>
+<p><img src="./../img/shadingpoint.png" srcset="/img/loading.gif" alt="shadingpoint"></p>
+<p>对于一般点光源，单位光照强度会随着距离增加而减少。则对于单位半径的光强<code>I</code><br>$$I_{r} = I/ r^2$$</p>
+<p>由于入射角越小，接收越强。因此可以用入射向量与法线向量的点乘<code>n·l</code>来粗略表明能量吸收率。<br>因此该点的漫反射光为<br>$$L_d = k_d(I/r^2)max(0,n·l)$$<br>其中$k_d$为材质系数</p>
+<h3 id="高光-Specular-highlight"><a href="#高光-Specular-highlight" class="headerlink" title="高光 Specular highlight"></a>高光 Specular highlight</h3><p>当观察方向<code>v</code>和镜面反射方向接近时，就会得到一个高亮区域。也就是高光。</p>
+<p>在布林·冯模型中，为了减少计算量，首先算出入射向量<code>l</code>和观察方向向量<code>v</code>的半程向量<code>h</code>(四边形法则)，计算<code>h</code>和法线<code>n</code>的点乘，来确定两向量是否接近。</p>
+<p>$$L_s = k_s(I/r^2)max(0,n·h)^p$$</p>
+<p><code>p</code>为高光衰减指数。用于缩小高光范围。（范围大概100-200？）</p>
+<h3 id="环境光照-Ambient-Lighting"><a href="#环境光照-Ambient-Lighting" class="headerlink" title="环境光照 Ambient Lighting"></a>环境光照 Ambient Lighting</h3><p>近似地，假设所有点受到的环境光强度$I_a$都相同。</p>
+<p>$$L_a = k_aI_a$$</p>
+<h2 id="着色频率-Shading-Frequencies"><a href="#着色频率-Shading-Frequencies" class="headerlink" title="着色频率 Shading Frequencies"></a>着色频率 Shading Frequencies</h2><p>3种着色类型</p>
+<ul>
+<li>片元着色 Flat Shading </li>
+<li>顶点着色 Gourud Shading</li>
+<li>像素着色 Phong Shading</li>
 </ul>
-<h4 id="设置物体原点"><a href="#设置物体原点" class="headerlink" title="设置物体原点"></a>设置物体原点</h4><p>先按<code>tab</code>进入编辑模式，设置游标到目标位置 <code>shift + s</code>，然后进入物体模式，将原点对齐到游标。</p>
-<h4 id="批量复制、偏移"><a href="#批量复制、偏移" class="headerlink" title="批量复制、偏移"></a>批量复制、偏移</h4><p>在修改器中添加<code>阵列修改器</code>,添加物体偏移，修改参数后按<code>ctrl + a</code>应用</p>
+<p>对于<strong>顶点</strong>的法线，将所有包含该顶点的面的法线做一个加权平均。<br>$$N_v = \frac{\sum_iN_i}{||\sum_iN_i||}$$</p>
+<p>对于每个<strong>像素</strong>的法线。</p>
+<h2 id="实时渲染管线-Real-time-Rendering"><a href="#实时渲染管线-Real-time-Rendering" class="headerlink" title="实时渲染管线 Real-time Rendering"></a>实时渲染管线 Real-time Rendering</h2><ol>
+<li><strong>顶点处理</strong> Vertex Processing</li>
+<li>生成三角形 Triangle Processing</li>
+<li>光栅化 Rasterization</li>
+<li><strong>片段着色</strong> Fragment Processing</li>
+<li>帧操作（像素拼接）Framebuffer Operations</li>
+</ol>
+<p>由于不同着色方法着色的阶段不同，如Gouraud Shading 可以在顶点阶段进行着色，Phong Shading在Fragment Processing阶段进行着色。<br>因此现代GPU一般Vertex阶段 和 Fragment阶段可编程，被称为<code>Shader</code>，用于定义着色输入和输出。</p>
 
             </div>
             <hr>
@@ -251,9 +269,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Blender/">Blender</a>
-                    
-                      <a class="hover-with-bg" href="/categories/Blender/Operation/">Operation</a>
+                      <a class="hover-with-bg" href="/categories/Computer-Graphic/">Computer Graphic</a>
                     
                   </div>
                 
@@ -267,9 +283,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/17/Blender%E6%9D%90%E8%B4%A8/">
+                      <a href="/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%BA%8C/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Blender材质</span>
+                        <span class="hidden-mobile">计算机图形学Shading(二)</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -277,8 +293,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/14/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/10/17/Blender%E5%88%B6%E4%BD%9C%E9%94%81%E9%93%BE/">
+                        <span class="hidden-mobile">Blender制作锁链</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -421,7 +437,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Blender操作&nbsp;",
+        "计算机图形学Shading(一)&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

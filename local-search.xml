@@ -4,12 +4,98 @@
   
   
   <entry>
+    <title>计算机图形学Shading(二)</title>
+    <link href="/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%BA%8C/"/>
+    <url>/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%BA%8C/</url>
+    
+    <content type="html"><![CDATA[<h2 id="纹理映射"><a href="#纹理映射" class="headerlink" title="纹理映射"></a>纹理映射</h2><p>纹理就是对于表面不同像素的不同基本属性。</p><p>不同属性作为系数与光照相乘，就能得到相应像素的着色。</p><p>纹理映射其实就是将一个二维图像一一映射到物体上。</p><p>用纹理坐标<code>(u,v)</code>来定位模型到展开图的位置。</p><blockquote><p>u,v 范围一般都是(0,1)</p></blockquote><p>对于可以无缝衔接的纹理被称为tileable texture。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Computer Graphic</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>计算机图形学Shading(一)</title>
+    <link href="/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%B8%80/"/>
+    <url>/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%B8%80/</url>
+    
+    <content type="html"><![CDATA[<p>Shading就是将不同物体应用不同材质，使其表现出明暗差异的过程。</p><p>一般由3种光照组成</p><ul><li>高光 specular highlight</li><li>漫反射 diffuse reflection </li><li>环境光照 Ambient lighting</li></ul><p>$$L = L_s+L_d+L_a$$</p><h3 id="漫反射-diffuse-reflection"><a href="#漫反射-diffuse-reflection" class="headerlink" title="漫反射 diffuse reflection"></a>漫反射 diffuse reflection</h3><p>计算摄像头所接收到的某个点的着色结果，需要以下输入：</p><ol><li>观测角度 <code>v</code></li><li>法线 <code>n</code></li><li>光线角度 <code>l</code></li><li>还有一系列的表面参数</li></ol><p><img src="./../img/shadingpoint.png" alt="shadingpoint"></p><p>对于一般点光源，单位光照强度会随着距离增加而减少。则对于单位半径的光强<code>I</code><br>$$I_{r} = I/ r^2$$</p><p>由于入射角越小，接收越强。因此可以用入射向量与法线向量的点乘<code>n·l</code>来粗略表明能量吸收率。<br>因此该点的漫反射光为<br>$$L_d = k_d(I/r^2)max(0,n·l)$$<br>其中$k_d$为材质系数</p><h3 id="高光-Specular-highlight"><a href="#高光-Specular-highlight" class="headerlink" title="高光 Specular highlight"></a>高光 Specular highlight</h3><p>当观察方向<code>v</code>和镜面反射方向接近时，就会得到一个高亮区域。也就是高光。</p><p>在布林·冯模型中，为了减少计算量，首先算出入射向量<code>l</code>和观察方向向量<code>v</code>的半程向量<code>h</code>(四边形法则)，计算<code>h</code>和法线<code>n</code>的点乘，来确定两向量是否接近。</p><p>$$L_s = k_s(I/r^2)max(0,n·h)^p$$</p><p><code>p</code>为高光衰减指数。用于缩小高光范围。（范围大概100-200？）</p><h3 id="环境光照-Ambient-Lighting"><a href="#环境光照-Ambient-Lighting" class="headerlink" title="环境光照 Ambient Lighting"></a>环境光照 Ambient Lighting</h3><p>近似地，假设所有点受到的环境光强度$I_a$都相同。</p><p>$$L_a = k_aI_a$$</p><h2 id="着色频率-Shading-Frequencies"><a href="#着色频率-Shading-Frequencies" class="headerlink" title="着色频率 Shading Frequencies"></a>着色频率 Shading Frequencies</h2><p>3种着色类型</p><ul><li>片元着色 Flat Shading </li><li>顶点着色 Gourud Shading</li><li>像素着色 Phong Shading</li></ul><p>对于<strong>顶点</strong>的法线，将所有包含该顶点的面的法线做一个加权平均。<br>$$N_v = \frac{\sum_iN_i}{||\sum_iN_i||}$$</p><p>对于每个<strong>像素</strong>的法线。</p><h2 id="实时渲染管线-Real-time-Rendering"><a href="#实时渲染管线-Real-time-Rendering" class="headerlink" title="实时渲染管线 Real-time Rendering"></a>实时渲染管线 Real-time Rendering</h2><ol><li><strong>顶点处理</strong> Vertex Processing</li><li>生成三角形 Triangle Processing</li><li>光栅化 Rasterization</li><li><strong>片段着色</strong> Fragment Processing</li><li>帧操作（像素拼接）Framebuffer Operations</li></ol><p>由于不同着色方法着色的阶段不同，如Gouraud Shading 可以在顶点阶段进行着色，Phong Shading在Fragment Processing阶段进行着色。<br>因此现代GPU一般Vertex阶段 和 Fragment阶段可编程，被称为<code>Shader</code>，用于定义着色输入和输出。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Computer Graphic</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Blender制作锁链</title>
+    <link href="/2020/10/17/Blender%E5%88%B6%E4%BD%9C%E9%94%81%E9%93%BE/"/>
+    <url>/2020/10/17/Blender%E5%88%B6%E4%BD%9C%E9%94%81%E9%93%BE/</url>
+    
+    <content type="html"><![CDATA[<p>首先生成圆环，将其拉伸成椭圆环。并创建一个空物体<code>ChainTrans</code>。</p><p>添加贝塞尔曲线，用于规划路径。</p><p>在圆环中添加<code>阵列修改器</code>，适配类型选择<code>适配曲线</code>，曲线选择贝塞尔曲线。</p><p>添加<code>曲线修改器</code>，曲线物体选择贝塞尔曲线。</p><p>在<code>阵列修改器</code>中，勾选<code>物体偏移</code>，物体选择<code>ChainTrans</code>，扭转<code>ChainTrans</code>用于产生角度。调整相对偏移系数将<code>锁环</code>相扣。</p><h4 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h4><ol><li><strong>Q:</strong> 锁环没法应用到曲线上。</li></ol><p><strong>A:</strong> 对曲线和锁环进行<code>ctrl + a</code> 应用全部变换<br>2. <strong>Q:</strong> 锁环拐角处变形<br><strong>A:</strong> 缩小锁环大小，或者调整曲线斜率</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Blender</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Blender材质</title>
+    <link href="/2020/10/17/Blender%E6%9D%90%E8%B4%A8/"/>
+    <url>/2020/10/17/Blender%E6%9D%90%E8%B4%A8/</url>
+    
+    <content type="html"><![CDATA[<h3 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h3><ul><li><p><strong>漫反射材质</strong></p></li><li><p><strong>反射材质</strong></p><ul><li>糙度 （糙度越小，反射效果越强）   </li></ul></li><li><p><strong>透射材质</strong></p><ul><li>糙度 (糙度越小，透射越强)</li><li>折射率 (根据不同物体折射率模拟物体)</li></ul></li><li><p><strong>发光材质</strong></p><ul><li>强度 </li></ul></li></ul><h3 id="Blender-原理化着色器"><a href="#Blender-原理化着色器" class="headerlink" title="Blender 原理化着色器"></a>Blender 原理化着色器</h3><p>使用BSDF(双向散射分布函数)来定义光在物体表面的反射与折射方式。</p><h3 id="Blender-节点着色器"><a href="#Blender-节点着色器" class="headerlink" title="Blender 节点着色器"></a>Blender 节点着色器</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>Blender</category>
+      
+      <category>Material</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Blender操作</title>
     <link href="/2020/10/16/Blender%E6%93%8D%E4%BD%9C/"/>
     <url>/2020/10/16/Blender%E6%93%8D%E4%BD%9C/</url>
     
-    <content type="html"><![CDATA[<h3 id="变换操作"><a href="#变换操作" class="headerlink" title="变换操作"></a>变换操作</h3><ul><li>平移 <code>g</code></li><li>旋转 <code>r</code></li><li>缩放 <code>s</code></li></ul><h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul><li>复制物体 <code>shift + d</code></li><li>添加物体 <code>shift + a</code></li><li>设置父级 <code>ctrl + p</code></li><li>合并物体 <code>ctrl + j</code></li></ul><h4 id="设置物体原点"><a href="#设置物体原点" class="headerlink" title="设置物体原点"></a>设置物体原点</h4><p>先按<code>tab</code>进入编辑模式，设置游标到目标位置 <code>shift + s</code>，然后进入物体模式，将原点对齐到游标。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="变换操作"><a href="#变换操作" class="headerlink" title="变换操作"></a>变换操作</h3><ul><li>平移 <code>g</code></li><li>旋转 <code>r</code></li><li>缩放 <code>s</code></li><li>挤出 <code>e</code></li><li>删除 <code>x</code></li><li>插入面 <code>i</code></li><li>缝合面 <code>f</code></li><li>添加倒角 <code>ctrl + b</code></li><li></li></ul><h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul><li>打开视图 <code>n</code></li><li>更换着色方式 <code>z</code></li><li>复制物体 <code>shift + d</code></li><li>添加物体 <code>shift + a</code></li><li>设置父级 <code>ctrl + p</code></li><li>合并物体 <code>ctrl + j</code></li><li>应用修改器 <code>ctrl + a</code></li></ul><h4 id="设置物体原点"><a href="#设置物体原点" class="headerlink" title="设置物体原点"></a>设置物体原点</h4><p>先按<code>tab</code>进入编辑模式，设置游标到目标位置 <code>shift + s</code>，然后进入物体模式，将原点对齐到游标。</p><h4 id="批量复制、偏移"><a href="#批量复制、偏移" class="headerlink" title="批量复制、偏移"></a>批量复制、偏移</h4><p>在修改器中添加<code>阵列修改器</code>,添加物体偏移，修改参数后按<code>ctrl + a</code>应用</p>]]></content>
     
+    
+    <categories>
+      
+      <category>Blender</category>
+      
+      <category>Operation</category>
+      
+    </categories>
     
     
   </entry>
