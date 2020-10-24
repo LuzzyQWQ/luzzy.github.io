@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="LuzzyQWQ">
   <meta name="keywords" content="">
-  <title>计算机图形学Geometry(一) - 柠檬香草的居酒屋</title>
+  <title>游戏设计快乐之道 - 柠檬香草的居酒屋</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-19 12:13" pubdate>
-        2020年10月19日 中午
+      <time datetime="2020-10-24 18:19" pubdate>
+        2020年10月24日 晚上
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      58 字
+      1.2k 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      12
        分钟
     </span>
   
@@ -217,17 +217,87 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">计算机图形学Geometry(一)</h1>
+            <h1 style="display: none">游戏设计快乐之道</h1>
             
             <div class="markdown-body" id="post-body">
-              <ul>
-<li>隐式几何 implicit</li>
-</ul>
-<p>并不提供的位置，而提供点的关系(矢量图)</p>
+              <h2 id="这是Raph-Koster所著，他在其中对于游戏和认知的理解给了我极大的灵感。"><a href="#这是Raph-Koster所著，他在其中对于游戏和认知的理解给了我极大的灵感。" class="headerlink" title="这是Raph Koster所著，他在其中对于游戏和认知的理解给了我极大的灵感。"></a>这是Raph Koster所著，他在其中对于游戏和认知的理解给了我极大的灵感。</h2><p>我认为游戏的本质是获得快乐。在一定规则中寻找模式，曲折地达到目标。</p>
+<p><strong>模式</strong>，<strong>快乐</strong></p>
+<h3 id="2-大脑的运作"><a href="#2-大脑的运作" class="headerlink" title="2. 大脑的运作"></a>2. 大脑的运作</h3><p>大脑的运作具有<strong>模式化倾向</strong>，她擅长假想，有时能剔除一些不相关的事物。</p>
+<p>相比于无序的事物，秩序的事物更具有吸引力。</p>
+<p>本书提到大脑运行的三个级别</p>
 <ul>
-<li>显示几何 explicit</li>
+<li>有意识的思考 （缓慢）</li>
+<li>联想、综合、直观性 (组块化部分， 非常缓慢) </li>
+<li>条件反射 (快)</li>
 </ul>
-<p>把几何表面设想成点的集合，并提供其坐标。<br>将<code>(u,v)</code>映射到三维空间<code>(x,y,z)</code></p>
+<p>许多时候，记忆只是与过去的经验模式进行匹配。而真正的思考的时候往往低效。</p>
+<p>因此学习本身是寻找<strong>模式</strong>的过程，将一个事物进行模块化。</p>
+<p>本书提到了理解的三个阶段</p>
+<ul>
+<li>理智理解</li>
+<li>直观理解</li>
+<li>深刻理解</li>
+</ul>
+<h3 id="3-什么是游戏"><a href="#3-什么是游戏" class="headerlink" title="3. 什么是游戏"></a>3. 什么是游戏</h3><p>本书认为游戏就是谜题。游戏过程和学习过程一样，都需要学习模式，只是游戏将一些系统更加具象化，排除了其他干扰元素。</p>
+<blockquote>
+<p>我还认为，游戏提供了很好的阶段性反馈，使得模式更加强化。（无论是数值，新系统，成就，美术，音乐等等）</p>
+</blockquote>
+<p>一款好的游戏，就是要玩家在停止游戏前，尽量把每一样东西都教给玩家。</p>
+<p>人们常常厌恶学习，是因为教学方法并不吸引人。（完全认同！）</p>
+<p>随着人们逐渐熟悉游戏的模式，就需要新的模式的游戏出现。（这里有点对应核心玩法上的创新）</p>
+<p><strong>游戏构造的越严格，就越受限制</strong></p>
+<p><strong>在玩游戏时，学习就是兴奋剂</strong></p>
+<p>大脑渴望刺激，因此无时无刻不在获取新的数据，但大脑又不希望建立新的系统引起混乱，所以处理数据首先是进行模式匹配，而不是“学习”<br>（很有趣的理论）</p>
+<h4 id="感官剥夺与感官超负荷"><a href="#感官剥夺与感官超负荷" class="headerlink" title="感官剥夺与感官超负荷"></a>感官剥夺与感官超负荷</h4><p>人们产生厌烦的情况</p>
+<ol>
+<li>在游戏最初就完全理解了玩法，因而感到无趣。“太简单了”</li>
+<li>玩家发现游戏要达到可能的变化，需要很多东西。认为这些东西没有作用。“东西太多了”</li>
+<li>对于玩家过于困难，无法找到模式。“太难了”</li>
+<li>游戏模式变化太快了。“太快了”</li>
+<li>玩家完全掌握了游戏所有模式。“我完全掌握了”</li>
+</ol>
+<h3 id="游戏教会我们什么"><a href="#游戏教会我们什么" class="headerlink" title="游戏教会我们什么"></a>游戏教会我们什么</h3><p>其实所有的事物本来都是游戏，但是往往人们因为了解到了背后事物的重要性，就忽略了其中的快乐。</p>
+<p>游戏交给我们“预测胜算”的能力，教会我们如何检视周围环境（“空间关系”）。</p>
+<p>游戏需要玩家理解对于空间行使权力之后的变化。因此游戏往往都不是一个回合结束的。</p>
+<p>其中的快乐也源于对自身生活技能的改善。</p>
+<p>书中认为游戏加强的人类特性</p>
+<ol>
+<li>盲目的领袖崇拜</li>
+<li>严格的等级制度和二元思维方式</li>
+<li>运用武力解决问题</li>
+<li>乐于寻找与自己相似的东西，或者排外</li>
+</ol>
+<p>早期平台视频游戏</p>
+<ol>
+<li><strong>“到另一边”</strong>。如青蛙过河、马里奥。</li>
+<li><strong>“遍历每个角落”</strong>。 如吃豆人。</li>
+</ol>
+<p>手感也很重要，跳跃游戏的空中跳跃时间，几乎与按下跳跃键的时间相同。</p>
+<p>一个动作游戏是教你熟悉情景，训练反射。</p>
+<p>一个策略游戏是教你保持警觉，深思熟虑。</p>
+<h3 id="游戏不是什么"><a href="#游戏不是什么" class="headerlink" title="游戏不是什么"></a>游戏不是什么</h3><p>玩家往往会轻视游戏玩法的道德含义。</p>
+<ul>
+<li>游戏并不是故事</li>
+<li>游戏与美和愉悦无关</li>
+<li>游戏与谋取社会地位无关</li>
+<li>快乐与在特定环境下的学习有关。</li>
+</ul>
+<ol>
+<li>游戏像是一种体验式教学，而故事让你产生共鸣。</li>
+<li>游戏擅长使人客体化，而故事让你沉浸</li>
+<li>游戏是关于人类行为的，而故事是关于想法的</li>
+<li><strong>游戏是玩家叙事的生成器，而故事提供了叙事</strong></li>
+</ol>
+<p>快乐的定义很宽泛，但是表现形式很多。书中将其划分为几类：</p>
+<ol>
+<li><strong>快乐</strong>。一种解决了问题时发自内心的表现</li>
+<li><strong>审美欣赏</strong>。 这里对应于识别出模式的“惊奇感”。</li>
+<li><strong>内心的反应</strong>。 一般表现于对问题的掌握程度。</li>
+<li><strong>不同类型的社会地位更替</strong>。 本质上源于自我形象和社会声望。</li>
+</ol>
+<p>畅感，对于某个事物拥有绝对控制力时，一个恰好符合能力要求的任务出现了。</p>
+<h3 id="人的定位不同"><a href="#人的定位不同" class="headerlink" title="人的定位不同"></a>人的定位不同</h3><p>由于人的偏向性不同，游戏不可能吸引到所有人</p>
+<p>玩家乐于“作弊”。</p>
 
             </div>
             <hr>
@@ -237,10 +307,17 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Computer-Graphic/">Computer Graphic</a>
+                      <a class="hover-with-bg" href="/categories/Book/">Book</a>
                     
                   </div>
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Game-Design/">Game Design</a>
+                    
+                  </div>
                 
               </div>
               
@@ -251,18 +328,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E5%BF%AB%E4%B9%90%E4%B9%8B%E9%81%93/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">游戏设计快乐之道</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Shading-%E4%BA%8C/">
-                        <span class="hidden-mobile">计算机图形学Shading(二)</span>
+                      <a href="/2020/10/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6Geometry-%E4%B8%80/">
+                        <span class="hidden-mobile">计算机图形学Geometry(一)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -405,7 +476,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "计算机图形学Geometry(一)&nbsp;",
+        "游戏设计快乐之道&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
